@@ -23,6 +23,7 @@ function buffer(emitter){
   };
 
   return function(_){
+    emitter.emit = emit;
     while (_ = buf.shift()) {
       emit.apply(emitter, _);
     }

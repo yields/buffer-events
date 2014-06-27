@@ -26,9 +26,11 @@ describe('buffer-events', function(){
     emitter.emit('c', {});
     assert.equal(0, args.length);
     flush();
-    assert.equal(3, args.length);
+    emitter.emit('c', {});
+    assert.equal(4, args.length);
     assert.deepEqual(args[0], [[1, 2, 3]]);
     assert.deepEqual(args[1], [1, 2, 3]);
     assert.deepEqual(args[2], [{}]);
+    assert.deepEqual(args[3], [{}]);
   })
 })
